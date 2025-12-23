@@ -14,10 +14,10 @@ function getComputerChoice() {
 
 }
 
-const computerSelection = getComputerChoice();
-console.log(computerSelection);
+// const computerSelection = getComputerChoice();
+// console.log(computerSelection);
 
-    // console.log(getComputerChoice());
+
 
 
 // Getting Human Choice
@@ -28,18 +28,19 @@ function getHumanChoice() {
     return choiceInput;
 }
 
-const humanSelection = getHumanChoice();
-console.log(humanSelection);
-//   console.log(getChoice());
+// const humanSelection = getHumanChoice();
+// console.log(humanSelection);
 
+
+
+
+function playGame() {
 
 // Declaring Player score variable
-
 let humanScore = 0;
 let computerScore = 0;
 
 // Writing the logic to play single round
-
 function playRound(humanChoice, computerChoice) {
     const human = humanChoice.toLowerCase();
     const computer = computerChoice.toLowerCase();
@@ -67,13 +68,24 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
 
-// const humanSelection = getHumanChoice();
-// const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
 
-playRound(humanSelection, computerSelection);
+    if (humanScore > computerScore) {
+        console.log("You won the game! Final Score: " + humanScore + " to " + computerScore);
+    } else if (humanScore < computerScore) {
+        console.log("You lost the game. Final Score: " + humanScore + " to " + computerScore);
+    } else {
+        console.log("The game is a tie. Final Score: " + humanScore + " to " + computerScore)
+    }
+}
 
 
+playGame();
 
 
 
